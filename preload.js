@@ -1,10 +1,15 @@
 let fs = require("fs");
 const { ipcRenderer } = require("electron");
 
-var ss = document.createElement("link");
-ss.type = "text/css";
-ss.rel = "stylesheet";
-ss.href = "justgage.github.io/darkcamp/style.css";
+// prod development
+const styleElement = document.createElement("style");
+styleElement.innerHTML = fs.readFileSync("docs/style.css").toString("utf-8");
+
+// Local development
+// const styleElement = document.createElement("link");
+// styleElement.type = "text/css";
+// styleElement.rel = "stylesheet";
+// styleElement.href = "https://justgage.github.io/darkcamp/style.css";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementsByTagName("head")[0].appendChild(styleElement);
