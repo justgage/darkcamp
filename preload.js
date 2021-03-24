@@ -1,9 +1,10 @@
 let fs = require("fs");
 const { ipcRenderer } = require("electron");
 
-const styleElement = document.createElement("style");
-
-styleElement.innerHTML = fs.readFileSync("style.css").toString("utf-8");
+var ss = document.createElement("link");
+ss.type = "text/css";
+ss.rel = "stylesheet";
+ss.href = "justgage.github.io/darkcamp/style.css";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementsByTagName("head")[0].appendChild(styleElement);
